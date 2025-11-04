@@ -31,17 +31,14 @@ jobs:
         
       - name: Install dependencies
         run: |
-          rm -rf node_modules
-          rm -f package-lock.json
           npm install
-          npm install framer-motion@latest
-          npm install tailwindcss@latest postcss@latest autoprefixer@latest
+          npm install framer-motion@latest postcss@latest autoprefixer@latest
         
       - name: Build with Next.js
         run: |
           npm run build
           touch ./out/.nojekyll
-          echo "deployed_at=$(date)" >> $GITHUB_OUTPUT
+          cp -r ./public/* ./out/
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
