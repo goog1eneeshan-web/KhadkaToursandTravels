@@ -36,7 +36,7 @@ jobs:
         run: |
           npm run build
           touch ./out/.nojekyll
-          cp ./public/.nojekyll ./out/
+          echo "deployed_at=$(date)" >> $GITHUB_OUTPUT
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
