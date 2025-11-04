@@ -1,3 +1,5 @@
+'use client';
+
 import ServiceCard from "./ServiceCard";
 import { motion } from "framer-motion";
 
